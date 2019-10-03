@@ -1,0 +1,12 @@
+<div class ="container-fluid">
+    <h1>Registration </h1>
+    <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)=" onSubmit()" novalidate>
+        {{ userForm.form.valid }}
+        <div class="form-group">
+            <label>Bidding</label>
+            <input type="number" required #amount="ngModel"
+            [class.is-invalid]="amount.invalid && amount.touched" class="form-control" name="amount" [(ngModel)]="userModel.amount">
+        </div>
+        <button [disabled]="userForm.form.invalid || topicHasError" class="btn btn-primary" type="submit">BID</button>
+    </form>
+</div>
